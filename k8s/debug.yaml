@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hl7meshv1
+  labels:
+    app: hl7meshv1
+spec:
+  containers:
+  - image: 279855623390.dkr.ecr.us-east-2.amazonaws.com/hl7meshv1:latest
+    imagePullPolicy: IfNotPresent
+    name: hl7meshv1 
+  restartPolicy: Always
