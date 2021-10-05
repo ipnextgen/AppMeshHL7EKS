@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ingest-hl7
   namespace: hl7
+  name: ingest-hl7
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hl7-ingest
-      version: v1
+      app: ingest-hl7
+      tier: frontend
   template:
     metadata:
       labels:
-        app: hl7-inest
-        version: v1
+        app: ingest-hl7
+        tier: frontend
     spec:
       containers:
-        - name: app
-          image: ${COLOR_APP_IMAGE}
+        - name: ingest-hl7
+          image: 279855623390.dkr.ecr.us-east-2.amazonaws.com/hl7meshv1:v4
           ports:
             - containerPort: 5000

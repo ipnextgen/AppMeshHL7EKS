@@ -1,24 +1,16 @@
 apiVersion: appmesh.k8s.aws/v1beta2
 kind: VirtualNode
 metadata:
-  name: hl7ingest
+  name: ingest-hl7
   namespace: hl7
 spec:
   podSelector:
     matchLabels:
-      app: hl7ingest
-      version: v1
+      app: ingest-hl7
   listeners:
     - portMapping:
         port: 5000
-        protocol: http
-      healthCheck:
-        protocol: http
-        path: '/hl7/ping'
-        healthyThreshold: 2
-        unhealthyThreshold: 2
-        timeoutMillis: 2000
-        intervalMillis: 5000
+        protocol: http  
   serviceDiscovery:
     dns:
-      hostname: hl7-ingest.hl7.svc.cluster.local
+      hostname: ingest-hl7.hl7.svc.cluster.local

@@ -4,5 +4,4 @@ metadata:
   name: hl7
   labels:
     mesh: hl7
-    gateway: ingress-gw
     appmesh.k8s.aws/sidecarInjectorWebhook: enabled

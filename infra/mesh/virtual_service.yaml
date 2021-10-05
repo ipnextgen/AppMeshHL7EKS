@@ -1,11 +1,11 @@
 apiVersion: appmesh.k8s.aws/v1beta2
 kind: VirtualService
 metadata:
-  name: color-paths
+  name: ingest-hl7
   namespace: hl7
 spec:
-  awsName: hl7-ingest.hl7.svc.cluster.local
+  awsName: ingest-hl7
   provider:
-    virtualRouter:
-      virtualRouterRef:
-        name: hl7-ingest
+    virtualNode:
+      virtualNodeRef:
+        name: ingest-hl7
