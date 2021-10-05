@@ -1,0 +1,32 @@
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: VirtualRouter
+metadata:
+  namespace: hl7
+  name: hl7-ingest
+spec:
+  listeners:
+    - portMapping:
+        port: 5000
+        protocol: http
+  routes:
+    - name: color-route-blue
+      priority: 10
+      httpRoute:
+        match:
+          prefix: /blue
+        action:
+          weightedTargets:
+            - virtualNodeRef:
+                name: blue
+              weight: 1
+    - name: color-route-green
+      priority: 20
+      httpRoute:
+        match:
+          prefix: /green
+        action:
+          weightedTargets:
+            - virtualNodeRef:
+                name: green
+              weight: 1
+

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingest-hl7
+  namespace: hl7
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hl7-ingest
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: hl7-inest
+        version: v1
+    spec:
+      containers:
+        - name: app
+          image: ${COLOR_APP_IMAGE}
+          ports:
+            - containerPort: 5000

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: color-green
+  namespace: hl7
+spec:
+  ports:
+    - port: 5000
+      name: http
+  selector:
+    app: ingest-hl7
+    version: v1

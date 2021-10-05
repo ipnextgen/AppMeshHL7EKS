@@ -1,0 +1,8 @@
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: Mesh
+metadata:
+  name: hl7
+spec:
+  namespaceSelector:
+    matchLabels:
+      mesh: hl7
