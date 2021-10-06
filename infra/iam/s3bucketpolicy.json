@@ -6,7 +6,7 @@
             "Sid": "Stmt1633528831248",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::279855623390:role/eksctl-AnyCompanyProd-addon-iamserviceaccoun-Role1-4VJLCZGAS9YJ"
+                "AWS": "arn:aws:iam::279855623390:role/eksctl-AnyCompanyProd-addon-iamserviceaccoun-Role1-1DUU90POK576L"
             },
             "Action": "s3:*",
             "Resource": "arn:aws:s3:::hl7-storing-eks-demo-mglap/*"
@@ -15,7 +15,7 @@
             "Sid": "Stmt1633528876705",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::279855623390:role/eksctl-AnyCompanyProd-addon-iamserviceaccoun-Role1-4VJLCZGAS9YJ"
+                "AWS": "arn:aws:iam::279855623390:role/eksctl-AnyCompanyProd-addon-iamserviceaccoun-Role1-1DUU90POK576L"
             },
             "Action": "s3:*",
             "Resource": "arn:aws:s3:::hl7-storing-eks-demo-mglap"
