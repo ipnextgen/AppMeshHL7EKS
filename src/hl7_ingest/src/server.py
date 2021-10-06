@@ -4,7 +4,6 @@ import requests
 from flask import Flask, redirect, url_for, request
 
 app = Flask(__name__)
-# cache = redis.Redis(host='redis.internal-bookingapp.com', port=6379)
 
 
 def ingest_hl7():
@@ -19,11 +18,10 @@ def hit(hl7msg):
         return "<html>HL7 Ingestion service on node %s.<br \>>Response : %s" % ( socket.gethostname(), count)
     
     if request.method == 'POST':
-        data = request.form
-        r = requests.post("http://a8cf492c0594442729b248d1d207470b-1627855603.us-east-2.elb.amazonaws.com/hl7/store", data={'number': 12524, 'type': 'issue', 'action': 'show'})
+        datacontent = request.form
+        r = requests.post("http://a8cf492c0594442729b248d1d207470b-1627855603.us-east-2.elb.amazonaws.com/hl7/store", data={'hl7': datacontent['hl7']})
         print(r.status_code, r.reason)
-        return "<html>HL7 Ingestion service on node %s.<br \>>Response : %s <br \>>Status: %s <br \>>Reason: %s" % ( socket.gethostname(), data, r.status_code, r.reason)
-
+        return "<html>HL7 Ingestion service on node %s.<br \>>Response : %s <br \>>Status: %s <br \>>Reason: %s" % ( socket.gethostname(), datacontent, r.status_code, r.reason)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
