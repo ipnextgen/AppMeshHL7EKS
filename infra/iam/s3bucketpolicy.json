@@ -1,0 +1,24 @@
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1633528878391",
+    "Statement": [
+        {
+            "Sid": "Stmt1633528831248",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::279855623390:role/eksctl-AnyCompanyProd-addon-iamserviceaccoun-Role1-4VJLCZGAS9YJ"
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::hl7-storing-eks-demo-mglap/*"
+        },
+        {
+            "Sid": "Stmt1633528876705",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::279855623390:role/eksctl-AnyCompanyProd-addon-iamserviceaccoun-Role1-4VJLCZGAS9YJ"
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::hl7-storing-eks-demo-mglap"
+        }
+    ]
+}

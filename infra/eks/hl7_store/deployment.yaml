@@ -2,19 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: dev
-  name: ingest-hl7
+  name: store-hl7
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ingest-hl7
+      app: store-hl7
   template:
     metadata:
       labels:
-        app: ingest-hl7
+        app: store-hl7
     spec:
+      serviceAccountName: hl7storeirsa
       containers:
-        - name: ingest-hl7
-          image: 279855623390.dkr.ecr.us-east-2.amazonaws.com/hl7meshv1:v4
+        - name: store-hl7
+          image: 279855623390.dkr.ecr.us-east-2.amazonaws.com/hl7_store:latest
           ports:
             - containerPort: 5000

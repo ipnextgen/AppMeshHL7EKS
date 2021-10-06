@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 
 def ingest_hl7():
-    message = "Ok"
+    message = "Service is healthy"
     return message
 
 
@@ -20,7 +20,9 @@ def hit(hl7msg):
     
     if request.method == 'POST':
         data = request.form
-        return "<html>HL7 Ingestion service on node %s.<br \>>Response : %s" % ( socket.gethostname(), data)
+        r = requests.post("http://a8cf492c0594442729b248d1d207470b-1627855603.us-east-2.elb.amazonaws.com/hl7/store", data={'number': 12524, 'type': 'issue', 'action': 'show'})
+        print(r.status_code, r.reason)
+        return "<html>HL7 Ingestion service on node %s.<br \>>Response : %s <br \>>Status: %s <br \>>Reason: %s" % ( socket.gethostname(), data, r.status_code, r.reason)
 
 
 if __name__ == "__main__":
