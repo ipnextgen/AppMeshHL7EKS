@@ -13,4 +13,4 @@ spec:
         protocol: http  
   serviceDiscovery:
     dns:
-      hostname: ingest-hl7.hl7.svc.cluster.local
+      hostname: ingest-hl7.hl7-mesh.svc.cluster.local
