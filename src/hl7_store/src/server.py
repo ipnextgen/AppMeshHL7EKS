@@ -2,6 +2,8 @@ import time
 import socket
 import boto3
 import requests
+import random
+import string
 from flask import Flask, redirect, url_for, request
 
 app = Flask(__name__)
@@ -24,9 +26,18 @@ def hit(hl7msg):
         return "<html>HL7 Storing service on node %s.<br \>>Response : %s" % ( socket.gethostname(), count)
     
     if request.method == 'POST':
-        content="String content to write to a new S3 file"
-        s3.Object('hl7-storing-eks-demo-mglap', 'newfile.txt').put(Body=content)
+        
+        # Generating oject name randomly
+        letters = string.ascii_lowercase
+        objectname = ( ''.join(random.choice(letters) for i in range(10)) )
+        
+        #content="String content to write to a new S3 file"
+        #s3.Object('hl7-storing-eks-demo-mglap', objectname).put(Body=content)
+        # Storing content
         data = request.form
+        s3.Object('hl7-storing-eks-demo-mglap', objectname).put(Body=str(data['number']))
+        
+        # final return
         return "<html>HL7 Storing service on node %s.<br \>>Response : %s" % ( socket.gethostname(), data)
 
 
