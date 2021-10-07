@@ -1,0 +1,11 @@
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: VirtualService
+metadata:
+  name: ingest-hl7
+  namespace: dev
+spec:
+  awsName: ingest-hl7.dev.svc.cluster.local
+  provider:
+    virtualNode:
+      virtualNodeRef:
+        name: ingest-hl7

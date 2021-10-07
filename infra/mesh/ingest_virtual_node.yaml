@@ -1,0 +1,19 @@
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: VirtualNode
+metadata:
+  name: ingest-hl7
+  namespace: dev
+spec:
+  podSelector:
+    matchLabels:
+      app: ingest-hl7
+  listeners:
+    - portMapping:
+        port: 5000
+        protocol: http
+  serviceDiscovery:
+    dns:
+      hostname: ingest-hl7.dev.svc.cluster.local
+  backends:
+    - virtualService:
+       virtualServiceARN: arn:aws:appmesh:us-east-2:279855623390:mesh/hl7mesh/virtualService/store-hl7.dev.svc.cluster.local
