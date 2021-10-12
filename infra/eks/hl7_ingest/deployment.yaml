@@ -18,3 +18,8 @@ spec:
           image: public.ecr.aws/d9m0n6d3/hl7_ingest
           ports:
             - containerPort: 5000
+          env:
+            - name: "STORE_HOST"
+              value: "store-hl7.dev.svc.cluster.local:5000"
+            - name: "PORT"
+              value: "5000"

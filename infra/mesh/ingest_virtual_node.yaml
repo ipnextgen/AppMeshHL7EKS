@@ -11,9 +11,11 @@ spec:
     - portMapping:
         port: 5000
         protocol: http
-  serviceDiscovery:
-    dns:
-      hostname: ingest-hl7.dev.svc.cluster.local
   backends:
     - virtualService:
-       virtualServiceARN: arn:aws:appmesh:us-east-2:279855623390:mesh/hl7mesh/virtualService/store-hl7.dev.svc.cluster.local
+        virtualServiceRef:
+          name: store
+  serviceDiscovery:
+    awsCloudMap:
+      namespaceName: dev.svc.cluster.local
+      serviceName: ingest-hl7

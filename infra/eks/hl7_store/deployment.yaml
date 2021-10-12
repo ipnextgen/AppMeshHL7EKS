@@ -14,8 +14,22 @@ spec:
         app: store-hl7
     spec:
       serviceAccountName: hl7storeirsa
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: role
+                operator: In
+                values:
+                - sandbox
       containers:
         - name: store-hl7
           image: 279855623390.dkr.ecr.us-east-2.amazonaws.com/hl7_store:latest
+          resources:
+            requests:
+              memory: "1Gi"
+            limits:
+              memory: "1Gi"
           ports:
             - containerPort: 5000

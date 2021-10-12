@@ -2,7 +2,7 @@ apiVersion: appmesh.k8s.aws/v1beta2
 kind: VirtualRouter
 metadata:
   namespace: dev
-  name: store-hl7-virtual-router
+  name: store
 spec:
   listeners:
     - portMapping:
@@ -10,7 +10,7 @@ spec:
         protocol: http
   routes:
     - name: store-hl7-route
-      httpRoute:
+      http2Route:
         match:
           prefix: /
         action:

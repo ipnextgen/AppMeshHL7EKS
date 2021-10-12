@@ -20,7 +20,7 @@ def hit(hl7msg):
     
     if request.method == 'POST':
         datacontent = request.form
-        r = requests.post("http://store-hl7.dev.svc.cluster.local:5000/hl7/post", data={'hl7': datacontent['hl7']})
+        r = requests.post("http://a754cf01047f44de998d5dc71f15f8c6-2087924061.us-east-2.elb.amazonaws.com/hl7/post", data={'hl7': datacontent['hl7']})
         print(r.status_code, r.reason)
         return "<html>HL7 Ingestion service on node %s.<br \>>Response : %s <br \>>Status: %s <br \>>Reason: %s" % ( socket.gethostname(), datacontent, r.status_code, r.reason)
 

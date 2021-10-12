@@ -1,11 +1,11 @@
 apiVersion: appmesh.k8s.aws/v1beta2
 kind: VirtualService
 metadata:
-  name: store-hl7
+  name: store
   namespace: dev
 spec:
-  awsName: store-hl7.dev.svc.cluster.local
+  awsName: store.dev.svc.cluster.local
   provider:
     virtualRouter:
       virtualRouterRef:
-        name: store-hl7-virtual-router
+        name: store

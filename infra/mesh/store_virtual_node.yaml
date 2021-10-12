@@ -12,5 +12,6 @@ spec:
         port: 5000
         protocol: http
   serviceDiscovery:
-    dns:
-      hostname: store-hl7.dev.svc.cluster.local
+    awsCloudMap:
+      namespaceName: dev.svc.cluster.local
+      serviceName: store-hl7

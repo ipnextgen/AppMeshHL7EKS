@@ -6,6 +6,7 @@ import random
 import string
 import base64
 import hl7
+import os
 from flask import Flask, redirect, url_for, request
 
 app = Flask(__name__)
@@ -55,5 +56,3 @@ def hit(hl7msg):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
-
-
